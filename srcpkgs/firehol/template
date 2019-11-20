@@ -1,0 +1,19 @@
+# Template file for 'firehol'
+pkgname=firehol
+version=3.1.6
+revision=1
+build_style=gnu-configure
+configure_args="--disable-man --disable-doc"
+hostmakedepends="$automake"
+makedepends="iproute2 kmod procps-ng iprange iputils traceroute curl ipset"
+depends="${makedepends}"
+short_desc="Firewall for humans"
+maintainer="juan <juan@horlux.org>"
+license="GPL-2"
+homepage="https://github.com/firehol/firehol/"
+distfiles="https://github.com/firehol/firehol/archive/v${version}.tar.gz"
+checksum=dc71650a933c1fd420956813d79f9a058bcf3cbaa84b928536a53995ecb889e4
+
+pre_configure() {
+	./autogen.sh
+}
